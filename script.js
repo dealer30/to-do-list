@@ -29,15 +29,19 @@ function addTask(description) {
 	taskList.appendChild(taskContainer);
 }
 
-function darkMode() {
+async function darkMode() {
   // pega o checkbox do documento.
   var checkBox = document.getElementById("switchDark");
   // pega o body do documento.
   var body = document.body;
+  body.classList.toggle("light-mode");
 
   // se o checkbox está checado, coloca o body na classe "dark-mode"
   if (checkBox.checked == true){
-    body.classList.toggle("dark-mode");
+	await body.classList.toggle("light-mode");
+    await body.classList.toggle("dark-mode");
   } else {
+	await body.classList.toggle("dark-mode");
+	await body.classList.toggle("light-mode");
   }
 }
